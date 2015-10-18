@@ -1,6 +1,7 @@
 var express = require('express'),
     router = express.Router(),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override');
 
 var postsController = require('../controllers/posts');
 
@@ -12,7 +13,5 @@ router.route('/posts')
 
   //POST a new post
   .post(postsController.createPost);
-
-//router.route('/posts/:id') took update and delete out for this app, still need this line?
 
 module.exports = router

@@ -9,16 +9,14 @@ var path        = require('path');
 // var Post = require('./models/post')
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/angular-hate');
+mongoose.connect('mongodb://localhost:27017/angular-hate');
 
 var routes  = require('./config/routes');
 
 app.use(cors());
-
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json)
-
 app.use(routes);
 
 app.listen(port);

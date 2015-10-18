@@ -3,23 +3,20 @@ var Post = require('../models/Post');
 // GET
 function getAll(request, response) {
   Post.find(function(error, posts) {
-    if(error) response.json({message: 'Could not find any posts'});
+    if(error) response.status(404).send(error);
 
-    response.json({posts: posts});
-  });
+    response.status(200).send(posts);
+  }).select('-__v');
 }
 
 // POST
 function createPost(request, response) {
-  console.log('in POST');
-  console.log('body:',request.body);
-
   var post = new Post(request.body);
 
   post.save(function(error) {
-    if(error) response.json({messsage: 'Could not create post because:' + error});
+    if(error) response.status(500).send(error);
 
-    response.json({post: post});
+    response.status(201).send(post);
   });
 }
 

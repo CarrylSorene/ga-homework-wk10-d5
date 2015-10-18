@@ -6,10 +6,11 @@
 
   <!-- External Scripts-->
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-resource.js"></script>
   
   <!-- Internal Scripts-->
   <script src="./js/app.js"></script>
-  <script src="./js/controllers/postsController.js"></script>
+  <script src="./js/postsController.js"></script>
    <link rel="stylesheet" type="text/css" href="./css/style.css">
 
 </head>
@@ -19,21 +20,13 @@
     <h1>I HATE ANGULAR</h1>
     <h2>(Non-)constructive Angular.JS hate</h2>
 
-    <section>
-      <!-- View by dropdown -->
-    </section>
-
-    <section><!-- Search box, works as you type --></section>
-
-    <section><!-- Sign In and Sign Up --></section>
-
   </header>
 
   <main>
   
       <ol>
         <li ng-repeat="post in posts.all">
-      {{ post.title }} {{ post.author }} {{post.url}}
+      {{ post.title }} {{post.url}} submitted by {{ post.author }} 
         </li>
       </ol>
     
