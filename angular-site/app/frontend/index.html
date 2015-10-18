@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hateApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Top - I H A T E A N G U L A R </title>
+
+  <!-- External Scripts-->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.js"></script>
+  
+  <!-- Internal Scripts-->
+  <script src="./js/app.js"></script>
+  <script src="./js/controllers/postsController.js"></script>
+   <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+</head>
+<body ng-controller="postsController as posts">
+
+  <header>
+    <h1>I HATE ANGULAR</h1>
+    <h2>(Non-)constructive Angular.JS hate</h2>
+
+    <section>
+      <!-- View by dropdown -->
+    </section>
+
+    <section><!-- Search box, works as you type --></section>
+
+    <section><!-- Sign In and Sign Up --></section>
+
+  </header>
+
+  <main>
+  
+      <ol>
+        <li ng-repeat="post in posts.all">
+      {{ post.title }} {{ post.author }} {{post.url}}
+        </li>
+      </ol>
+    
+    </main>
+
+  <form id="newPost" class="add-post" ng-submit='posts.addPost()'>
+    <div>
+      <label for="new-post-title">Title</label>
+      <input type="text" id="new-post-title" placeholder="I hate Angular so very much" ng-model='posts.newPost.title'>
+    </div>
+
+    <div>
+      <label for="new-post-url">URL</label>
+      <input type="text" id="new-post-url" placeholder="Link to interesting reason we should all hate Angular" ng-model='posts.newPost.url'>
+    </div>
+
+    <div>
+      <label for="new-post-author">Author</label>
+      <input type="text" id="new-post-author" placeholder="Name of Angular-Hater" ng-model='posts.newPost.author'>
+    </div>
+
+    <div>
+      <input type="submit" value="Submit Post">
+    </div>
+  </form>
+  
+</body>
+</html>
